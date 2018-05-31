@@ -1,36 +1,45 @@
 #ifndef BATEAU_H
 #define BATEAU_H
 
-enum typeBateau { VOILIER, MOTEUR };
-enum typeBateauAMoteur {PECHE, PLAISANCE};
+#include <stdint.h>
+#include <stdint-gcc.h>
 
-struct Bateau {
-    const char* nom;
-    typeBateau typeA;
-    union {
-        struct Voilier voilier;
-        struct BateauAMoteur bateauMoteur;
-    };
-};
+typedef enum {VOILIER, MOTEUR} typeBateau;
+typedef enum {PECHE, PLAISANCE} typeBateauAMoteur;
 
-struct Voilier {
+typedef struct {
+    uint16_t tonnePoisson;
+} BateauPeche;
+
+typedef struct {
+    const char* nomProprietaire;
+} BateauPlaisance;
+
+typedef struct {
     uint16_t surfaceVoilure;
-};
+} Voilier;
 
-struct BateauAMoteur {
+typedef struct {
     uint16_t puissance;
     typeBateauAMoteur typeB;
     union {
-        struct BateauPeche;
-        struct BateauPlaisance;
+        BateauPeche bateauPeche;
+        BateauPlaisance bateauPlaisance;
     };
-};
+} BateauAMoteur;
 
-struct BateauPeche {
-    uint16_t tonnePoisson;
-};
+typedef struct {
+    const char* nom;
+    typeBateau typeA;
+    union {
+        Voilier voilier;
+        BateauAMoteur bateauMoteur;
+    };
+} Bateau;
 
-struct BateauPlaisance {
-    const char* nomProprietaire;
-};
+
+Bateau initBateauVoilier(const char* nom, uint16_t surfaceVoilure);
+Bateau initBateauPeche(const char* nom, uint16_t puissance, uint16_t tonnePoisson);
+Bateau initBateauPlaisance(const char* nom, uint16_t puissance, const char* nomProprietaire);
+
 #endif
