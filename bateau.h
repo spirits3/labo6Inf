@@ -1,6 +1,8 @@
 #ifndef BATEAU_H
 #define BATEAU_H
 
+#include <inttypes.h>
+
 enum typeBateau { VOILIER, MOTEUR };
 enum typeBateauAMoteur {PECHE, PLAISANCE};
 
