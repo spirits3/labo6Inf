@@ -1,7 +1,5 @@
 #include <stdio.h>
-
 #include "bateau.h"
-#include "affichage.c"
 
 void affichageBateau(const Bateau bateau) {
 
@@ -10,20 +8,20 @@ void affichageBateau(const Bateau bateau) {
 	printf("%s", "type du bateau: ");
 	if(bateau.typeA == VOILIER) {
 		printf("%s\n", "voilier");
-		printf("%s%s%s\n", "La surface de la voilure est de: ", bateau.Voilier.surfaceVoilure, "[m2]");
+		printf("%s%d%s\n", "La surface de la voilure est de: ", bateau.voilier.surfaceVoilure, "[m2]");
 	}
 
-	else if(bateau.typeA = BATEAUAMOTEUR){
+	else if(bateau.typeA == MOTEUR){
 		printf("%s\n", "moteur");
-		printf("%s%s%s\n", "puissance: ", bateau.BateauAMoteur.puissance, "[CV]");
+		printf("%s%d%s\n", "puissance: ", bateau.bateauMoteur.puissance, "[CV]");
 		printf("%s", "Utilisation du bateau: ");
-        if(bateau.BateauAMoteur.typeB == PECHE) {
-        	printf("%s", "peche");
-        	printf("%s%s%s\n", "Le bateau peut pecher ", bateau.BateauPeche.tonnes, " tonnes maximum.");
+        if(bateau.bateauMoteur.typeB == PECHE) {
+        	printf("%s\n", "peche");
+        	printf("%s%d%s\n", "Le bateau peut pecher ", bateau.bateauMoteur.bateauPeche.tonnePoisson, " tonnes maximum.");
         }
-        else if(bateau.BateauAMoteur.typeB == PLAISANCE) {
+        else if(bateau.bateauMoteur.typeB == PLAISANCE) {
         	printf("%s\n", "plaisance");
-        	printf("%s%s\n", "nom du proprietaire: ", bateau.BateauAMoteur.BateauPlaisance.nomPropriétaire);
+        	printf("%s%s\n", "nom du proprietaire: ", bateau.bateauMoteur.bateauPlaisance.nomProprietaire);
         }
         else {
         	printf("%s\n", "pas de type de bateau a moteur");
@@ -34,7 +32,6 @@ void affichageBateau(const Bateau bateau) {
 	   	printf("%s", "pas de type");
     	return;
     }
+    printf("\n");
 
 }
-
-void affichageTaxe()
