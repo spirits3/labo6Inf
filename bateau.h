@@ -2,9 +2,8 @@
 #define BATEAU_H
 
 #include <stdint.h>
-#include <stdint-gcc.h>
 
-typedef enum {VOILIER, MOTEUR} typeBateau;
+typedef enum {VOILIER, BATEAU_A_MOTEUR} typeBateau;
 typedef enum {PECHE, PLAISANCE} typeBateauAMoteur;
 
 typedef struct {
