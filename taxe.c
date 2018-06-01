@@ -26,15 +26,11 @@ double taxeParBateau(const Bateau* bateau) {
 
 void taxeTotalPort(Bateau port[], double *taxeParType,uint8_t nombreDeBateau) {
 	for(size_t i = 0; i < nombreDeBateau; ++i) {
-		if (port[i].typeA == VOILIER) {
-			taxeParType[0] += taxeBase(&port[i]);
-			taxeParType[0] += taxeSpecifique(&port[i]);
-		} else if (port[i].bateauMoteur.typeB == PECHE) {
-			taxeParType[1] += taxeBase(&port[i]);
-			taxeParType[1] += taxeSpecifique(&port[i]);
-		} else if (port[i].bateauMoteur.typeB == PLAISANCE) {
-			taxeParType[2] += taxeBase(&port[i]);
-			taxeParType[2] += taxeSpecifique(&port[i]);
-		}
+	    if (port[i].typeA == VOILIER) 
+		taxeParType[0] += taxeParBateau(&port[i]);
+	    else if (port[i].bateauMoteur.typeB == PECHE) 
+		taxeParType[1] += taxeParBateau(&port[i]);
+	    else if (port[i].bateauMoteur.typeB == PLAISANCE) 
+		taxeParType[2] += taxeParBateau(&port[i]);
 	}
 }
