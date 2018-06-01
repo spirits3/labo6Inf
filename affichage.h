@@ -5,4 +5,5 @@
 
 void affichageBateau(const Bateau* bateau);
 void affichageTaxe();
+void affichagePort(const Bateau port[], size_t nbBateau);
 #endif

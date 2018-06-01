@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-typedef enum {VOILIER, BATEAU_A_MOTEUR} typeBateau;
-typedef enum {PECHE, PLAISANCE} typeBateauAMoteur;
+typedef enum {VOILIER, BATEAU_A_MOTEUR} TypeBateau;
+typedef enum {PECHE, PLAISANCE} TypeBateauAMoteur;
 
 typedef struct {
     uint16_t tonnePoisson;
@@ -20,7 +20,7 @@ typedef struct {
 
 typedef struct {
     uint16_t puissance;
-    typeBateauAMoteur typeB;
+    TypeBateauAMoteur typeB;
     union {
         BateauPeche bateauPeche;
         BateauPlaisance bateauPlaisance;
@@ -29,7 +29,7 @@ typedef struct {
 
 typedef struct {
     const char* nom;
-    typeBateau typeA;
+    TypeBateau typeA;
     union {
         Voilier voilier;
         BateauAMoteur bateauMoteur;

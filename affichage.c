@@ -34,3 +34,10 @@ void affichageBateau(const Bateau* bateau) {
 }
 
 void affichageTaxe();
+
+
+void affichagePort(const Bateau port[], size_t nbBateau) {
+    for (size_t i = 0; i < nbBateau; ++i) {
+        affichageBateau(&port[i]);
+    }
+}
