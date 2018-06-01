@@ -1,3 +1,20 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : No 6
+ Fichier     : bateau.c
+ Auteur(s)   : Rafael Da Cunha Garcia, Florian Shaufelberger,
+                Jorge-Andre Fulgencio Esteves
+ Date        : 01.06.2018
+
+ But         : Contient la definition des methodes permettant d'initialiser divers
+                bateaux. Une methode par type de bateau a generer.
+
+ Remarque(s) :
+
+ Compilateur : MinGW-gcc 7.1.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include "bateau.h"
 
 

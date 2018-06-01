@@ -1,3 +1,20 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : No 6
+ Fichier     : taxe.c
+ Auteur(s)   : Rafael Da Cunha Garcia, Florian Shaufelberger,
+                Jorge-Andre Fulgencio Esteves
+ Date        : 01.06.2018
+
+ But         : Definir les methodes de calcul de taxes de base, taxes annuelles
+ 				et taxes moyennes
+
+ Remarque(s) :
+
+ Compilateur : MinGW-gcc 7.1.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include "taxe.h"
 
 double taxeBase (const Bateau* bateau) {

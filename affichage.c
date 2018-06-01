@@ -1,3 +1,20 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : No 6
+ Fichier     : affichage.c
+ Auteur(s)   : Rafael Da Cunha Garcia, Florian Shaufelberger,
+                Jorge-Andre Fulgencio Esteves
+ Date        : 01.06.2018
+
+ But         : Contient les definitions des methodes d'affichage de taxes,
+                bateau et port
+
+ Remarque(s) :
+
+ Compilateur : MinGW-gcc 7.1.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include <stdio.h>
 #include "affichage.h"
 
