@@ -13,8 +13,22 @@
 
  Compilateur : MinGW-gcc 7.1.0
  -----------------------------------------------------------------------------------
-*/
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : No 6
+ Fichier     : affichage.c
+ Auteur(s)   : Rafael Da Cunha Garcia, Florian Shaufelberger,
+                Jorge-Andre Fulgencio Esteves
+ Date        : 01.06.2018
 
+ But         : Definir les constantes pour l'affichage ainsi que les phrases 
+ 			   utilisées pour l'affichage.
+
+ Remarque(s) :
+
+ Compilateur : MinGW-gcc 7.1.0
+ -----------------------------------------------------------------------------------
+*/
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
@@ -30,9 +44,9 @@
 #define TYPE_VOILIER 		"voilier"
 #define SURFACE_VOILURE 	"Surface voilure: "
 #define M2					"[m2]"
+#define TYPE_MOTEUR			"moteur"
 #define PUISSANCE_MOTEUR	"Puissance du moteur: "
 #define CV					"[CV]"
-#define TYPE_MOTEUR			"moteur"
 #define UTILISATION_BATEAU	"Utilisation du bateau: "
 #define TYPE_PECHE			"peche"
 #define BATEAU_PEUT_PECHER	"Le bateau peut pecher"
