@@ -29,6 +29,7 @@ void affichageBateau(const Bateau* bateau) {
 	   	printf("pas de type");
     	return;
     }
+    printf("\n");
 
 }
 
