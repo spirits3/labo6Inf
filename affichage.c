@@ -18,19 +18,13 @@
 #include <stdio.h>
 #include "affichage.h"
 
-#define AFFICHER_LIGNE_TABLEAU(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); } 
-#define AFFICHER_LIGNE_2_ELEM(STRING1, STRING2)             printf("|%-*s|%-*s|%*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING1), ALIGNEMENT_MAXIMAL_CENTRE, (STRING2), ALIGNEMENT_MAXIMAL_DROITE,"")
-#define AFFICHER_LIGNE_3_ELEM(STRING1, VALEUR_INT, STRING2) printf("|%-*s|%-*d|%-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, STRING1, ALIGNEMENT_MAXIMAL_CENTRE, VALEUR_INT, ALIGNEMENT_MAXIMAL_DROITE, STRING2)
-#define AFFICHER_TYPE_BATEAU(STRING)                        printf("|%-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_CENTRE, (STRING),ALIGNEMENT_MAXIMAL_DROITE, "")
-#define AFFICHER_DEBUT_PHRASE(STRING)                       printf("|%-*s", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING))
 
 
 void affichageBateau(const Bateau* bateau) {
+    const int TAILLE_TABLEAU = ALIGNEMENT_MAXIMAL_GAUCHE + ALIGNEMENT_MAXIMAL_CENTRE
+                                + ALIGNEMENT_MAXIMAL_DROITE + NOMBRE_CELLULE_PLUS_1;
 
-    const int TAILLE_TABLEAU = ALIGNEMENT_MAXIMAL_GAUCHE + ALIGNEMENT_MAXIMAL_CENTRE + ALIGNEMENT_MAXIMAL_DROITE + NOMBRE_CELLULE_PLUS_1;
-
-    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU); 
-
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
   
     AFFICHER_LIGNE_2_ELEM(NOM_DU_BATEAU, bateau->nom);
@@ -47,11 +41,13 @@ void affichageBateau(const Bateau* bateau) {
 		AFFICHER_DEBUT_PHRASE(UTILISATION_BATEAU);
         if(bateau->bateauMoteur.typeB == PECHE) {
         	AFFICHER_TYPE_BATEAU(TYPE_PECHE);
-            AFFICHER_LIGNE_3_ELEM(BATEAU_PEUT_PECHER, bateau->bateauMoteur.bateauPeche.tonnePoisson, TONNES);
+            AFFICHER_LIGNE_3_ELEM(BATEAU_PEUT_PECHER,
+                                  bateau->bateauMoteur.bateauPeche.tonnePoisson, TONNES);
         }
         else if(bateau->bateauMoteur.typeB == PLAISANCE) {
         	AFFICHER_TYPE_BATEAU(TYPE_PLAISANCE);
-            AFFICHER_LIGNE_2_ELEM(NOM_PROPRIETAIRE, bateau->bateauMoteur.bateauPlaisance.nomProprietaire);
+            AFFICHER_LIGNE_2_ELEM(NOM_PROPRIETAIRE,
+                                  bateau->bateauMoteur.bateauPlaisance.nomProprietaire);
         }
         else {
         	printf("pas de type de bateau a moteur");
@@ -75,6 +71,7 @@ void affichageTaxe(const Bateau port[], size_t nbBateau) {
 
 void affichagePort(const Bateau port[], size_t nbBateau) {
     for (size_t i = 0; i < nbBateau; ++i) {
+        printf("%s %lu :\n", NUMERO_BATEAU, (long unsigned) (i + 1));
         affichageBateau(&port[i]);
     }
 }

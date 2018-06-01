@@ -27,7 +27,6 @@ int main(void) {
                      initBateauPeche("Hollandais Volant", 25, 15),
                      initBateauPlaisance("Blue Mary", 13, "Barbe Violette")};
 
-    printf("%*c\n", 20, '-');
     affichagePort(port, 3);
 
 
