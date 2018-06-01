@@ -19,6 +19,26 @@
 #define AFFICHAGE_H
 
 #include "bateau.h"
+#include <stdio.h>
+
+#define ALIGNEMENT_MAXIMAL_GAUCHE 35
+#define ALIGNEMENT_MAXIMAL_CENTRE 20
+#define ALIGNEMENT_MAXIMAL_DROITE 6
+#define NOMBRE_CELLULE_PLUS_1	  4
+#define NOM_DU_BATEAU 		"Nom du bateau: "
+#define TYPE_DU_BATEAU 		"Type du bateau: "
+#define TYPE_VOILIER 		"voilier"
+#define SURFACE_VOILURE 	"Surface voilure: "
+#define M2					"[m2]"
+#define PUISSANCE_MOTEUR	"Puissance du moteur: "
+#define CV					"[CV]"
+#define TYPE_MOTEUR			"moteur"
+#define UTILISATION_BATEAU	"Utilisation du bateau: "
+#define TYPE_PECHE			"peche"
+#define BATEAU_PEUT_PECHER	"Le bateau peut pecher"
+#define TONNES				"tonnes"
+#define TYPE_PLAISANCE		"plaisance"
+#define NOM_PROPRIETAIRE	"Nom du proprietaire: "
 
 void affichageBateau(const Bateau* bateau);
 void affichageTaxe();
