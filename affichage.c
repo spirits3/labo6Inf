@@ -18,34 +18,40 @@
 #include <stdio.h>
 #include "affichage.h"
 
-#define AFFICHER_LIGNE(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); } 
+#define AFFICHER_LIGNE_TABLEAU(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); } 
+#define AFFICHER_LIGNE_2_ELEM(STRING1, STRING2)             printf("|%-*s|%-*s|%*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING1), ALIGNEMENT_MAXIMAL_CENTRE, (STRING2), ALIGNEMENT_MAXIMAL_DROITE,"")
+#define AFFICHER_LIGNE_3_ELEM(STRING1, VALEUR_INT, STRING2) printf("|%-*s|%-*d|%-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, STRING1, ALIGNEMENT_MAXIMAL_CENTRE, VALEUR_INT, ALIGNEMENT_MAXIMAL_DROITE, STRING2)
+#define AFFICHER_TYPE_BATEAU(STRING)                        printf("|%-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_CENTRE, (STRING),ALIGNEMENT_MAXIMAL_DROITE, "")
+#define AFFICHER_DEBUT_PHRASE(STRING)                       printf("|%-*s", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING))
+
 
 void affichageBateau(const Bateau* bateau) {
 
     const int TAILLE_TABLEAU = ALIGNEMENT_MAXIMAL_GAUCHE + ALIGNEMENT_MAXIMAL_CENTRE + ALIGNEMENT_MAXIMAL_DROITE + NOMBRE_CELLULE_PLUS_1;
 
-    AFFICHER_LIGNE(TAILLE_TABLEAU); 
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU); 
 
-	printf("\n|%-*s|%-*s|%*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, NOM_DU_BATEAU, ALIGNEMENT_MAXIMAL_CENTRE, bateau->nom, ALIGNEMENT_MAXIMAL_DROITE, "");
-
-    printf("|%-*s", ALIGNEMENT_MAXIMAL_GAUCHE, TYPE_DU_BATEAU);
+    printf("\n");
+  
+    AFFICHER_LIGNE_2_ELEM(NOM_DU_BATEAU, bateau->nom);
+    AFFICHER_DEBUT_PHRASE(TYPE_DU_BATEAU);
 	
 	if(bateau->typeA == VOILIER) {
-		printf("|%-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_CENTRE, TYPE_VOILIER,ALIGNEMENT_MAXIMAL_DROITE, "");
-		printf("|%-*s|%-*d|%-*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, SURFACE_VOILURE, ALIGNEMENT_MAXIMAL_CENTRE, bateau->voilier.surfaceVoilure, ALIGNEMENT_MAXIMAL_DROITE, M2);
+		AFFICHER_TYPE_BATEAU(TYPE_VOILIER);
+		AFFICHER_LIGNE_3_ELEM(SURFACE_VOILURE,bateau->voilier.surfaceVoilure, M2);
 	}
 
 	else if(bateau->typeA == BATEAU_A_MOTEUR){
-        printf("|%-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_CENTRE, TYPE_MOTEUR, ALIGNEMENT_MAXIMAL_DROITE, "");
-		printf("|%-*s|%-*d|%-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, PUISSANCE_MOTEUR, ALIGNEMENT_MAXIMAL_CENTRE, bateau->bateauMoteur.puissance, ALIGNEMENT_MAXIMAL_DROITE, CV);
-		printf("|%-*s", ALIGNEMENT_MAXIMAL_GAUCHE, UTILISATION_BATEAU);
+        AFFICHER_TYPE_BATEAU(TYPE_MOTEUR);
+        AFFICHER_LIGNE_3_ELEM(PUISSANCE_MOTEUR, bateau->bateauMoteur.puissance, CV);
+		AFFICHER_DEBUT_PHRASE(UTILISATION_BATEAU);
         if(bateau->bateauMoteur.typeB == PECHE) {
-        	printf("|%-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_CENTRE, TYPE_PECHE, ALIGNEMENT_MAXIMAL_DROITE, "");
-            printf("|%-*s|%-*d|%-*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, BATEAU_PEUT_PECHER, ALIGNEMENT_MAXIMAL_CENTRE, bateau->bateauMoteur.bateauPeche.tonnePoisson, ALIGNEMENT_MAXIMAL_DROITE, TONNES);
+        	AFFICHER_TYPE_BATEAU(TYPE_PECHE);
+            AFFICHER_LIGNE_3_ELEM(BATEAU_PEUT_PECHER, bateau->bateauMoteur.bateauPeche.tonnePoisson, TONNES);
         }
         else if(bateau->bateauMoteur.typeB == PLAISANCE) {
-        	printf("|%-*s|%-*s|\n",ALIGNEMENT_MAXIMAL_CENTRE, TYPE_PLAISANCE, ALIGNEMENT_MAXIMAL_DROITE, "");
-            printf("|%-*s|%-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, NOM_PROPRIETAIRE, ALIGNEMENT_MAXIMAL_CENTRE, bateau->bateauMoteur.bateauPlaisance.nomProprietaire, ALIGNEMENT_MAXIMAL_DROITE, "");
+        	AFFICHER_TYPE_BATEAU(TYPE_PLAISANCE);
+            AFFICHER_LIGNE_2_ELEM(NOM_PROPRIETAIRE, bateau->bateauMoteur.bateauPlaisance.nomProprietaire);
         }
         else {
         	printf("pas de type de bateau a moteur");
@@ -56,7 +62,7 @@ void affichageBateau(const Bateau* bateau) {
 	   	printf("pas de type");
     	return;
     }
-    AFFICHER_LIGNE(TAILLE_TABLEAU);
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
 
 }
