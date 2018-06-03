@@ -43,10 +43,12 @@
 #define TAXE_SPECIFIQUE_PETIT_MOTEUR 50
 #define TAXE_SPECIFIQUE_GRAND_MOTEUR 100
 
+#define MONNAIE "EUR"
 
 double taxeBase (const Bateau* bateau);
 double taxeSpecifique(const Bateau* bateau);
 double taxeParBateau(const Bateau* bateau);
-void taxeTotalPort(Bateau port[], double *taxeParType, uint8_t nombreDeBateau);
+void taxeTotalPort(Bateau port[], double taxeParType[], uint8_t nombreDeBateau);
+void taxeMoyennePort(Bateau port[], double taxeParType[], uint8_t nombreDeBateau);
 
 #endif /* TAXE_H */
