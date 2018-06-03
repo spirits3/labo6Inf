@@ -73,6 +73,16 @@
 #define AFFICHER_DEBUT_PHRASE(STRING) \
     printf("| %-*s", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING))
 
+
+
+#define AFFICHER_LIGNE_TAXE \
+    for (size_t i = 0; i < 62; ++i)printf("-");printf("\n") 
+#define AFFICHAGE_MENU(a,b,c,d) \
+    printf("%14s | %14s | %14s | %9s |\n", a, b, c, d)
+#define AFFICHAGE_TAXE_TYPE(a,b,c) \
+    printf("%14s | %14.2f | %14.2f | %9s |\n", a, b, c, MONNAIE); 
+
+
 void affichageBateau(const Bateau* bateau);
 void affichageTaxe();
 void affichagePort(const Bateau port[], size_t nbBateau);
