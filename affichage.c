@@ -63,11 +63,17 @@ void affichageBateau(const Bateau* bateau) {
 
 }
 
-void affichageTaxe(const Bateau port[], size_t nbBateau) {
 
-
+void affichageTaxe(double taxeMoyenneType[],double taxeAnnuelType[]) {
+    AFFICHER_LIGNE_TAXE;
+    AFFICHAGE_MENU("Type de bateau", "Taxe annuelle", "Taxe moyenne", "Monnaie");
+    AFFICHER_LIGNE_TAXE;
+    AFFICHAGE_TAXE_TYPE("Voilier",taxeAnnuelType[0], taxeMoyenneType[0])
+    AFFICHAGE_TAXE_TYPE("Peche",taxeAnnuelType[1], taxeMoyenneType[1])
+    AFFICHAGE_TAXE_TYPE("Plaisance",taxeAnnuelType[2], taxeMoyenneType[2])
+    AFFICHER_LIGNE_TAXE;
+    printf("\n");
 }
-
 
 void affichagePort(const Bateau port[], size_t nbBateau) {
     for (size_t i = 0; i < nbBateau; ++i) {
