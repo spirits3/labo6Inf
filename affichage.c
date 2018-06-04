@@ -64,10 +64,11 @@ void affichageBateau(const Bateau* bateau) {
 
 }
 
-void afficheEnTeteTableauTaxe() {
+void afficheEnTeteTableauTaxe(const uint8_t typeTaxe) {
+
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    AFFICHAGE_MENU(TYPE_DU_BATEAU, MENU_TAXE_ANNUELLE, MENU_MONNAIE);
-    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);    
+    AFFICHAGE_MENU(TYPE_DU_BATEAU, typeTaxe ? MENU_TAXE_ANNUELLE: MENU_TAXE_MOYENNE, MENU_MONNAIE);
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);       
 }
 
 
@@ -78,7 +79,7 @@ void affichageTaxeAnnuelle(Bateau port[], const uint8_t NB_BATEAU) {
     
     taxeTotalPort(port, taxeTypeAnnuelle, NB_BATEAU);
 
-    afficheEnTeteTableauTaxe();
+    afficheEnTeteTableauTaxe(TAXE_ANNUELLE);
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_VOILIER, taxeTypeAnnuelle[0]);
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PECHE, taxeTypeAnnuelle[1]);
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE,taxeTypeAnnuelle[2]);
@@ -94,7 +95,7 @@ void affichageTaxeMoyenne(Bateau port[], const uint8_t NB_BATEAU) {
 
     taxeMoyennePort(port, taxeMoyenneType,NB_BATEAU);
     
-    afficheEnTeteTableauTaxe();
+    afficheEnTeteTableauTaxe(TAXE_MOYENNE);
 
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_VOILIER, taxeMoyenneType[0]);
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PECHE, taxeMoyenneType[1]);

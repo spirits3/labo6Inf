@@ -1,28 +1,17 @@
 /*
  -----------------------------------------------------------------------------------
  Laboratoire : No 6
- Fichier     : affichage.h
- Auteur(s)   : Rafael Da Cunha Garcia, Florian Shaufelberger,
-                Jorge-Andre Fulgencio Esteves
- Date        : 01.06.2018
-
- But         : Definitions des prototypes des methodes d'afichage de bateau,
-                port et taxes ainsi que les definitions de la bibliotheque d'affichage
-
- Remarque(s) :
-
- Compilateur : MinGW-gcc 7.1.0
- -----------------------------------------------------------------------------------
-/*
- -----------------------------------------------------------------------------------
- Laboratoire : No 6
  Fichier     : affichage.c
  Auteur(s)   : Rafael Da Cunha Garcia, Florian Shaufelberger,
                 Jorge-Andre Fulgencio Esteves
  Date        : 01.06.2018
 
  But         : Definir les constantes pour l'affichage ainsi que les phrases 
- 			   utilisées pour l'affichage.
+ 			   utilisées pour l'affichage et declaration des methode d'affichage:
+               -affichage des taxes annuelles
+               -affichage des taxes annuelles moyenees
+               -affichage d'un bateau
+               -affichage du port (de tout les bateaux)
 
  Remarque(s) :
 
@@ -43,6 +32,8 @@
 #define ALIGNEMENT_MAXIMAL_DROITE 	6
 #define ALIGNEMENT_TAXE_MOYENNE		12
 #define NOMBRE_CELLULE_BATEAU	  	7
+#define TAXE_MOYENNE       (uint8_t)0
+#define TAXE_ANNUELLE      (uint8_t)1
 
 //Toutes les phrases que l'on va utiliser pour le tableau
 #define NOM_DU_BATEAU 		"Nom du bateau "
@@ -100,5 +91,8 @@ void affichageBateau(const Bateau* bateau);
 void affichageTaxeAnnuelle( Bateau port[], const uint8_t NB_BATEAU);
 void affichageTaxeMoyenne( Bateau port[], const uint8_t NB_BATEAU);
 void affichagePort(const Bateau port[], size_t nbBateau);
-void afficheEnTeteTableauTaxe();
-#endif /* AFFICHAGE_H */
+void afficheEnTeteTableauTaxe(const uint8_t typeTaxe);
+
+#endif 
+/* AFFICHAGE_H */
+
