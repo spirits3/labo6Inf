@@ -37,12 +37,9 @@ int main(void) {
 
     const uint8_t NB_BATEAU = sizeof(port) / sizeof(Bateau);
 
-    printf("nombre de bateau: %d\n", NB_BATEAU);
-
     affichagePort(port, NB_BATEAU);        
     affichageTaxeAnnuelle(port, NB_BATEAU);
     affichageTaxeMoyenne(port, NB_BATEAU);
-
-
+    
     return EXIT_SUCCESS;
 }

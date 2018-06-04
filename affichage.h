@@ -34,6 +34,7 @@
 
 #include "bateau.h"
 #include <stdio.h>
+#include <inttypes.h>
 
 //Tous les espaces pour faire que notre tableau soit coherent
 #define ALIGNEMENT_MAXIMAL_GAUCHE 	25
@@ -72,7 +73,7 @@
 
 //Permet d'afficher string/int/string au format du tableau bateau
 #define AFFICHER_LIGNE_3_ELEM(STRING1, VALEUR_INT, STRING2)  \
-    printf("| %-*s| %-*d| %-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, STRING1, \
+    printf("| %-*s| %-*"PRIu16"| %-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, STRING1, \
             ALIGNEMENT_MAXIMAL_CENTRE, VALEUR_INT, ALIGNEMENT_MAXIMAL_DROITE, STRING2)
 
 //Permet d'afficher string/double/double/monnaie au format du tableau taxe
@@ -94,9 +95,9 @@
     printf("| %-*s| %-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, a,\
     		ALIGNEMENT_MAXIMAL_CENTRE, b, ALIGNEMENT_MAXIMAL_DROITE, c)
 
-
 void affichageBateau(const Bateau* bateau);
 void affichageTaxeAnnuelle( Bateau port[], const uint8_t NB_BATEAU);
 void affichageTaxeMoyenne( Bateau port[], const uint8_t NB_BATEAU);
 void affichagePort(const Bateau port[], size_t nbBateau);
+void afficheEnTeteTableauTaxe();
 #endif /* AFFICHAGE_H */
