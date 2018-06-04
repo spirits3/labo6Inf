@@ -22,7 +22,7 @@
 
 const int TAILLE_TABLEAU = ALIGNEMENT_MAXIMAL_GAUCHE + ALIGNEMENT_MAXIMAL_CENTRE
                            + ALIGNEMENT_MAXIMAL_DROITE + NOMBRE_CELLULE_BATEAU;
-                           
+
 void affichageBateau(const Bateau* bateau) {
 
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
@@ -82,7 +82,6 @@ void affichageTaxeAnnuelle(Bateau port[], const uint8_t NB_BATEAU) {
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PECHE, taxeTypeAnnuelle[1]);
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE,taxeTypeAnnuelle[2]);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    printf("\n");
 
     free(taxeTypeAnnuelle); 
 }
@@ -100,7 +99,6 @@ void affichageTaxeMoyenne(Bateau port[], const uint8_t NB_BATEAU) {
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PECHE, taxeMoyenneType[1]);
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE, taxeMoyenneType[2]);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    printf("\n");
 
     free(taxeMoyenneType);
 
