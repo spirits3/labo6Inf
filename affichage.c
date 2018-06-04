@@ -66,7 +66,7 @@ void affichageBateau(const Bateau* bateau) {
 void affichageTaxeAnnuelle(Bateau port[], const uint8_t NB_BATEAU) {
 
     double *taxeTypeAnnuelle = (double*)calloc(NB_BATEAU, sizeof(double));
-    if(taxeTypeAnnuelle == NULL){
+    if(!taxeTypeAnnuelle){
         return;
     }
     taxeTotalPort(port, taxeTypeAnnuelle, NB_BATEAU);
@@ -79,12 +79,14 @@ void affichageTaxeAnnuelle(Bateau port[], const uint8_t NB_BATEAU) {
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE,taxeTypeAnnuelle[2]);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
+    
+    free(taxeTypeAnnuelle); 
 }
 
 void affichageTaxeMoyenne(Bateau port[], const uint8_t NB_BATEAU) {
 
     double *taxeMoyenneType = (double*)calloc(NB_BATEAU, sizeof(double));
-    if(taxeMoyenneType == NULL) {
+    if(!taxeMoyenneType) {
         return;
     }
     taxeMoyennePort(port, taxeMoyenneType,NB_BATEAU);
@@ -97,6 +99,8 @@ void affichageTaxeMoyenne(Bateau port[], const uint8_t NB_BATEAU) {
     AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE, taxeMoyenneType[2]);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
+
+    free(taxeMoyenneType);
 
 }
 

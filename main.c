@@ -39,9 +39,7 @@ int main(void) {
 
     printf("nombre de bateau: %d\n", NB_BATEAU);
 
-    affichagePort(port, NB_BATEAU);
-
-	        
+    affichagePort(port, NB_BATEAU);        
     affichageTaxeAnnuelle(port, NB_BATEAU);
     affichageTaxeMoyenne(port, NB_BATEAU);
 
