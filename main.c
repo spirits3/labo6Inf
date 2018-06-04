@@ -43,7 +43,7 @@ int main(void) {
 
     double *taxeType = (double*)calloc(NB_BATEAU, sizeof(double));
     taxeTotalPort(port, taxeType, NB_BATEAU);
-    
+	    
     double *taxeMoyenneType = (double*)calloc(NB_BATEAU, sizeof(double));
     taxeMoyennePort(port, taxeMoyenneType,NB_BATEAU);
     
