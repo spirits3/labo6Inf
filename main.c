@@ -18,6 +18,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+
 #include "bateau.h"
 #include "taxe.h"
 #include "affichage.h"
@@ -40,6 +41,6 @@ int main(void) {
     affichagePort(port, NB_BATEAU);        
     affichageTaxeAnnuelle(port, NB_BATEAU);
     affichageTaxeMoyenne(port, NB_BATEAU);
-    
+
     return EXIT_SUCCESS;
 }

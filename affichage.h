@@ -32,9 +32,10 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-#include "bateau.h"
 #include <stdio.h>
 #include <inttypes.h>
+
+#include "bateau.h"
 
 //Tous les espaces pour faire que notre tableau soit coherent
 #define ALIGNEMENT_MAXIMAL_GAUCHE 	25

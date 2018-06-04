@@ -16,6 +16,7 @@
 */
 
 #include <stdio.h>
+
 #include "affichage.h"
 #include "taxe.h"
 
