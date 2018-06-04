@@ -63,28 +63,41 @@ void affichageBateau(const Bateau* bateau) {
 }
 
 
-void affichageTaxeAnnuelle(double taxeAnnuelleType[]) {
+void affichageTaxeAnnuelle(Bateau port[], const uint8_t NB_BATEAU) {
+
+    double *taxeTypeAnnuelle = (double*)calloc(NB_BATEAU, sizeof(double));
+    if(taxeTypeAnnuelle == NULL){
+        return;
+    }
+    taxeTotalPort(port, taxeTypeAnnuelle, NB_BATEAU);
 
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    AFFICHAGE_MENU("Type de bateau", "Taxe annuelle", "Monnaie");
+    AFFICHAGE_MENU(TYPE_DU_BATEAU, MENU_TAXE_ANNUELLE, MENU_MONNAIE);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    AFFICHER_LIGNE_2_ELEM_MONNAIE("Voilier",taxeAnnuelleType[0]);
-    AFFICHER_LIGNE_2_ELEM_MONNAIE("Peche",taxeAnnuelleType[1]);
-    AFFICHER_LIGNE_2_ELEM_MONNAIE("Plaisance",taxeAnnuelleType[2]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_VOILIER, taxeTypeAnnuelle[0]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PECHE, taxeTypeAnnuelle[1]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE,taxeTypeAnnuelle[2]);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
 }
 
-void affichageTaxeMoyenne(double taxeMoyenneType[]) {
-                                
+void affichageTaxeMoyenne(Bateau port[], const uint8_t NB_BATEAU) {
+
+    double *taxeMoyenneType = (double*)calloc(NB_BATEAU, sizeof(double));
+    if(taxeMoyenneType == NULL) {
+        return;
+    }
+    taxeMoyennePort(port, taxeMoyenneType,NB_BATEAU);
+
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    AFFICHAGE_MENU("Type de bateau", "Taxe moyenne", "Monnaie");
+    AFFICHAGE_MENU(TYPE_DU_BATEAU, MENU_TAXE_MOYENNE, MENU_MONNAIE);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    AFFICHER_LIGNE_2_ELEM_MONNAIE("Voilier", taxeMoyenneType[0]);
-    AFFICHER_LIGNE_2_ELEM_MONNAIE("Peche", taxeMoyenneType[1]);
-    AFFICHER_LIGNE_2_ELEM_MONNAIE("Plaisance", taxeMoyenneType[2]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_VOILIER, taxeMoyenneType[0]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PECHE, taxeMoyenneType[1]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE(TYPE_PLAISANCE, taxeMoyenneType[2]);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
+
 }
 
 void affichagePort(const Bateau port[], size_t nbBateau) {

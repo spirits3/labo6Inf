@@ -43,21 +43,24 @@
 #define NOMBRE_CELLULE_BATEAU	  	7
 
 //Toutes les phrases que l'on va utiliser pour le tableau
-#define NOM_DU_BATEAU 		"Nom du bateau: "
-#define TYPE_DU_BATEAU 		"Type du bateau: "
-#define TYPE_VOILIER 		"voilier"
+#define NOM_DU_BATEAU 		"Nom du bateau "
+#define TYPE_DU_BATEAU 		"Type du bateau "
+#define TYPE_VOILIER 		"Voilier"
 #define SURFACE_VOILURE 	"Surface voilure: "
 #define M2					"[m2]"
-#define TYPE_MOTEUR			"moteur"
-#define PUISSANCE_MOTEUR	"Puissance du moteur: "
+#define TYPE_MOTEUR			"Moteur"
+#define PUISSANCE_MOTEUR	"Puissance du moteur "
 #define CV					"[CV]"
-#define UTILISATION_BATEAU	"Utilisation du bateau: "
-#define TYPE_PECHE			"peche"
+#define UTILISATION_BATEAU	"Utilisation du bateau "
+#define TYPE_PECHE			"Peche"
 #define BATEAU_PEUT_PECHER	"Le bateau peut pecher"
 #define TONNES				"tonnes"
-#define TYPE_PLAISANCE		"plaisance"
-#define NOM_PROPRIETAIRE	"Nom du proprietaire: "
+#define TYPE_PLAISANCE		"Plaisance"
+#define NOM_PROPRIETAIRE	"Nom du proprietaire "
 #define NUMERO_BATEAU       "Bateau No"
+#define MENU_TAXE_MOYENNE   "Taxe moyenne"
+#define MENU_TAXE_ANNUELLE  "Taxe annuelle"
+#define MENU_MONNAIE        "Monnaie"
 
 //Permet d'afficher la bordure du haut et bas du tableau
 #define AFFICHER_LIGNE_TABLEAU(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); } printf("\n");
@@ -93,7 +96,7 @@
 
 
 void affichageBateau(const Bateau* bateau);
-void affichageTaxeAnnuelle(double taxeAnnuelleType[]);
-void affichageTaxeMoyenne(double taxeMoyenneType[]);
+void affichageTaxeAnnuelle( Bateau port[], const uint8_t NB_BATEAU);
+void affichageTaxeMoyenne( Bateau port[], const uint8_t NB_BATEAU);
 void affichagePort(const Bateau port[], size_t nbBateau);
 #endif /* AFFICHAGE_H */

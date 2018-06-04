@@ -41,16 +41,10 @@ int main(void) {
 
     affichagePort(port, NB_BATEAU);
 
-    double *taxeType = (double*)calloc(NB_BATEAU, sizeof(double));
-    taxeTotalPort(port, taxeType, NB_BATEAU);
-	    
-    double *taxeMoyenneType = (double*)calloc(NB_BATEAU, sizeof(double));
-    taxeMoyennePort(port, taxeMoyenneType,NB_BATEAU);
-    
-    affichageTaxeAnnuelle(taxeType);
-    affichageTaxeMoyenne(taxeMoyenneType);
+	        
+    affichageTaxeAnnuelle(port, NB_BATEAU);
+    affichageTaxeMoyenne(port, NB_BATEAU);
 
-    taxeMoyennePort(port, taxeMoyenneType, NB_BATEAU);
 
     return EXIT_SUCCESS;
 }
