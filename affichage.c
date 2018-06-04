@@ -17,15 +17,14 @@
 
 #include <stdio.h>
 #include "affichage.h"
+#include "taxe.h"
 
 
-
+const int TAILLE_TABLEAU = ALIGNEMENT_MAXIMAL_GAUCHE + ALIGNEMENT_MAXIMAL_CENTRE
+                           + ALIGNEMENT_MAXIMAL_DROITE + NOMBRE_CELLULE_BATEAU;
 void affichageBateau(const Bateau* bateau) {
-    const int TAILLE_TABLEAU = ALIGNEMENT_MAXIMAL_GAUCHE + ALIGNEMENT_MAXIMAL_CENTRE
-                                + ALIGNEMENT_MAXIMAL_DROITE + NOMBRE_CELLULE_PLUS_1;
 
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    printf("\n");
   
     AFFICHER_LIGNE_2_ELEM(NOM_DU_BATEAU, bateau->nom);
     AFFICHER_DEBUT_PHRASE(TYPE_DU_BATEAU);
@@ -64,14 +63,27 @@ void affichageBateau(const Bateau* bateau) {
 }
 
 
-void affichageTaxe(double taxeMoyenneType[],double taxeAnnuelType[]) {
-    AFFICHER_LIGNE_TAXE;
-    AFFICHAGE_MENU("Type de bateau", "Taxe annuelle", "Taxe moyenne", "Monnaie");
-    AFFICHER_LIGNE_TAXE;
-    AFFICHAGE_TAXE_TYPE("Voilier",taxeAnnuelType[0], taxeMoyenneType[0])
-    AFFICHAGE_TAXE_TYPE("Peche",taxeAnnuelType[1], taxeMoyenneType[1])
-    AFFICHAGE_TAXE_TYPE("Plaisance",taxeAnnuelType[2], taxeMoyenneType[2])
-    AFFICHER_LIGNE_TAXE;
+void affichageTaxeAnnuelle(double taxeAnnuelleType[]) {
+
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
+    AFFICHAGE_MENU("Type de bateau", "Taxe annuelle", "Monnaie");
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE("Voilier",taxeAnnuelleType[0]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE("Peche",taxeAnnuelleType[1]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE("Plaisance",taxeAnnuelleType[2]);
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
+    printf("\n");
+}
+
+void affichageTaxeMoyenne(double taxeMoyenneType[]) {
+                                
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
+    AFFICHAGE_MENU("Type de bateau", "Taxe moyenne", "Monnaie");
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE("Voilier", taxeMoyenneType[0]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE("Peche", taxeMoyenneType[1]);
+    AFFICHER_LIGNE_2_ELEM_MONNAIE("Plaisance", taxeMoyenneType[2]);
+    AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
     printf("\n");
 }
 

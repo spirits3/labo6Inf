@@ -41,8 +41,8 @@ double taxeParBateau(const Bateau* bateau) {
     return taxeBase(bateau) + taxeSpecifique(bateau);
 }
 
-void taxeTotalPort(Bateau port[], double taxeParType[],uint8_t nombreDeBateau) {
-	for(size_t i = 0; i < nombreDeBateau; ++i) {
+void taxeTotalPort(Bateau port[], double taxeParType[],const uint8_t NB_BATEAU) {
+	for(size_t i = 0; i < NB_BATEAU; ++i) {
             if (port[i].typeA == VOILIER) 
                 taxeParType[0] += taxeParBateau(&port[i]);
             else if (port[i].bateauMoteur.typeB == PECHE) 
@@ -52,11 +52,11 @@ void taxeTotalPort(Bateau port[], double taxeParType[],uint8_t nombreDeBateau) {
 	}
 }
 
-void taxeMoyennePort(Bateau port[], double taxeMoyenneType[], uint8_t nombreDeBateau) {
+void taxeMoyennePort(Bateau port[], double taxeMoyenneType[], const uint8_t NB_BATEAU) {
     
-    uint8_t *nombre_bateau_type = (uint8_t*)calloc(NOMBRE_TYPE_BATEAU, sizeof(uint8_t));
+    uint8_t *nombre_bateau_type = (uint8_t*)calloc(NB_BATEAU, sizeof(uint8_t));
 
-    for(size_t i = 0; i < nombreDeBateau; ++i) {
+    for(size_t i = 0; i < NB_BATEAU; ++i) {
         if (port[i].typeA == VOILIER) 
             nombre_bateau_type[0]++;
         else if (port[i].bateauMoteur.typeB == PECHE) 
@@ -65,8 +65,10 @@ void taxeMoyennePort(Bateau port[], double taxeMoyenneType[], uint8_t nombreDeBa
             nombre_bateau_type[2]++;
     }
     
-    taxeTotalPort(port, taxeMoyenneType, nombreDeBateau);
+    taxeTotalPort(port, taxeMoyenneType, NB_BATEAU);
     
-    for(size_t i = 0; i < NOMBRE_TYPE_BATEAU; ++i) 
+    for(size_t i = 0; i < NB_BATEAU; ++i) 
         taxeMoyenneType[i] /= nombre_bateau_type[i];   
+
+
 }

@@ -19,16 +19,38 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "bateau.h"
-#include "affichage.h"
 #include "taxe.h"
+#include "affichage.h"
 
 int main(void) {
-    Bateau port[] = {initBateauVoilier("BlackPearl", 15),
-                     initBateauPeche("Hollandais Volant", 25, 15),
-                     initBateauPlaisance("Blue Mary", 13, "Barbe Violette")};
 
-    affichagePort(port, 3);
+	Bateau port[] = {initBateauVoilier("BlackPearl", 199),
+    				 initBateauVoilier("Royal James", 200),
+                     initBateauVoilier("Flying dragon", 50),
+                     initBateauPeche("Hollandais Volant", 99, 19),
+                     initBateauPeche("Fancy", 99, 20),
+                     initBateauPeche("The Ranger", 100, 20),
+                     initBateauPlaisance("Blue Mary", 99, "Wang Zhi"),
+                 	 initBateauPlaisance("Titanic", 100, "Anne Dieu-le-veut"),
+                 	 initBateauPlaisance("L'albatros", 300, "Barbe Rousse")};    
 
+
+    const uint8_t NB_BATEAU = sizeof(port) / sizeof(Bateau);
+
+    printf("nombre de bateau: %d\n", NB_BATEAU);
+
+    affichagePort(port, NB_BATEAU);
+
+    double *taxeType = (double*)calloc(NB_BATEAU, sizeof(double));
+    taxeTotalPort(port, taxeType, NB_BATEAU);
+    
+    double *taxeMoyenneType = (double*)calloc(NB_BATEAU, sizeof(double));
+    taxeMoyennePort(port, taxeMoyenneType,NB_BATEAU);
+    
+    affichageTaxeAnnuelle(taxeType);
+    affichageTaxeMoyenne(taxeMoyenneType);
+
+    taxeMoyennePort(port, taxeMoyenneType, NB_BATEAU);
 
     return EXIT_SUCCESS;
 }

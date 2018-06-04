@@ -35,10 +35,14 @@
 #include "bateau.h"
 #include <stdio.h>
 
-#define ALIGNEMENT_MAXIMAL_GAUCHE 25
-#define ALIGNEMENT_MAXIMAL_CENTRE 20
-#define ALIGNEMENT_MAXIMAL_DROITE 6
-#define NOMBRE_CELLULE_PLUS_1	  7
+//Tous les espaces pour faire que notre tableau soit coherent
+#define ALIGNEMENT_MAXIMAL_GAUCHE 	25
+#define ALIGNEMENT_MAXIMAL_CENTRE 	20
+#define ALIGNEMENT_MAXIMAL_DROITE 	6
+#define ALIGNEMENT_TAXE_MOYENNE		12
+#define NOMBRE_CELLULE_BATEAU	  	7
+
+//Toutes les phrases que l'on va utiliser pour le tableau
 #define NOM_DU_BATEAU 		"Nom du bateau: "
 #define TYPE_DU_BATEAU 		"Type du bateau: "
 #define TYPE_VOILIER 		"voilier"
@@ -55,35 +59,41 @@
 #define NOM_PROPRIETAIRE	"Nom du proprietaire: "
 #define NUMERO_BATEAU       "Bateau No"
 
+//Permet d'afficher la bordure du haut et bas du tableau
+#define AFFICHER_LIGNE_TABLEAU(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); } printf("\n");
 
-#define AFFICHER_LIGNE_TABLEAU(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); }
-
+//Permet d'afficher string/string au format du tableau bateau
 #define AFFICHER_LIGNE_2_ELEM(STRING1, STRING2) \
     printf("| %-*s| %-*s| %*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING1), \
             ALIGNEMENT_MAXIMAL_CENTRE, (STRING2), ALIGNEMENT_MAXIMAL_DROITE,"")
 
+//Permet d'afficher string/int/string au format du tableau bateau
 #define AFFICHER_LIGNE_3_ELEM(STRING1, VALEUR_INT, STRING2)  \
     printf("| %-*s| %-*d| %-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, STRING1, \
             ALIGNEMENT_MAXIMAL_CENTRE, VALEUR_INT, ALIGNEMENT_MAXIMAL_DROITE, STRING2)
 
+//Permet d'afficher string/double/double/monnaie au format du tableau taxe
+#define AFFICHER_LIGNE_2_ELEM_MONNAIE(STRING1, DOUBLE1) \
+    printf("| %-*s| %-*.2f| %-*s|\n",ALIGNEMENT_MAXIMAL_GAUCHE, STRING1, \
+            ALIGNEMENT_MAXIMAL_CENTRE, DOUBLE1, ALIGNEMENT_MAXIMAL_DROITE, MONNAIE)
+
+//Permet d'afficher le debut du type des bateau au format du tableau bateau
 #define AFFICHER_TYPE_BATEAU(STRING) \
     printf("| %-*s| %-*s|\n", ALIGNEMENT_MAXIMAL_CENTRE, (STRING), \
             ALIGNEMENT_MAXIMAL_DROITE, "")
 
+//Permet d'afficher un debut de phrase au format du tableau bateau
 #define AFFICHER_DEBUT_PHRASE(STRING) \
     printf("| %-*s", ALIGNEMENT_MAXIMAL_GAUCHE, (STRING))
 
-
-
-#define AFFICHER_LIGNE_TAXE \
-    for (size_t i = 0; i < 62; ++i)printf("-");printf("\n") 
-#define AFFICHAGE_MENU(a,b,c,d) \
-    printf("%14s | %14s | %14s | %9s |\n", a, b, c, d)
-#define AFFICHAGE_TAXE_TYPE(a,b,c) \
-    printf("%14s | %14.2f | %14.2f | %9s |\n", a, b, c, MONNAIE); 
+//Permet d'afficher le menu au format du tableau taxe
+#define AFFICHAGE_MENU(a,b,c) \
+    printf("| %-*s| %-*s|%-*s|\n", ALIGNEMENT_MAXIMAL_GAUCHE, a,\
+    		ALIGNEMENT_MAXIMAL_CENTRE, b, ALIGNEMENT_MAXIMAL_DROITE, c)
 
 
 void affichageBateau(const Bateau* bateau);
-void affichageTaxe();
+void affichageTaxeAnnuelle(double taxeAnnuelleType[]);
+void affichageTaxeMoyenne(double taxeMoyenneType[]);
 void affichagePort(const Bateau port[], size_t nbBateau);
 #endif /* AFFICHAGE_H */
