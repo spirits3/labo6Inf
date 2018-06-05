@@ -6,7 +6,8 @@
                 Jorge-Andre Fulgencio Esteves
  Date        : 01.06.2018
 
- But         : Definir les structures contenant les caracteristique de chaque type de bateau,
+ But         : Definir les structures contenant les caracteristique de chaque type 
+				de bateau,
 
 
  Remarque(s) :
@@ -56,6 +57,7 @@ typedef struct {
 
 Bateau initBateauVoilier(const char* nom, uint16_t surfaceVoilure);
 Bateau initBateauPeche(const char* nom, uint16_t puissance, uint16_t tonnePoisson);
-Bateau initBateauPlaisance(const char* nom, uint16_t puissance, const char* nomProprietaire);
+Bateau initBateauPlaisance(const char* nom, uint16_t puissance,
+							const char* nomProprietaire);
 
 #endif /* BATEAU_H */

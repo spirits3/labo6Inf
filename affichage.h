@@ -56,7 +56,8 @@
 #define MENU_MONNAIE        "Monnaie"
 
 //Permet d'afficher la bordure du haut et bas du tableau
-#define AFFICHER_LIGNE_TABLEAU(TAILLE) for(int i = 0; i < (TAILLE); ++i) { printf("-"); } printf("\n");
+#define AFFICHER_LIGNE_TABLEAU(TAILLE) \
+	for(int i = 0; i < (TAILLE); ++i) { printf("-"); } printf("\n");
 
 //Permet d'afficher string/string au format du tableau bateau
 #define AFFICHER_LIGNE_2_ELEM(STRING1, STRING2) \

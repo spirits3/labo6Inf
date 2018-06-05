@@ -43,12 +43,12 @@ void affichageBateau(const Bateau* bateau) {
         if(bateau->bateauMoteur.typeB == PECHE) {
         	AFFICHER_TYPE_BATEAU(TYPE_PECHE);
             AFFICHER_LIGNE_3_ELEM(BATEAU_PEUT_PECHER,
-                                  bateau->bateauMoteur.bateauPeche.tonnePoisson, TONNES);
+                            bateau->bateauMoteur.bateauPeche.tonnePoisson, TONNES);
         }
         else if(bateau->bateauMoteur.typeB == PLAISANCE) {
         	AFFICHER_TYPE_BATEAU(TYPE_PLAISANCE);
             AFFICHER_LIGNE_2_ELEM(NOM_PROPRIETAIRE,
-                                  bateau->bateauMoteur.bateauPlaisance.nomProprietaire);
+                            bateau->bateauMoteur.bateauPlaisance.nomProprietaire);
         }
         else {
         	printf("pas de type de bateau a moteur");
@@ -67,7 +67,8 @@ void affichageBateau(const Bateau* bateau) {
 void afficheEnTeteTableauTaxe(const uint8_t typeTaxe) {
 
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);
-    AFFICHAGE_MENU(TYPE_DU_BATEAU, typeTaxe ? MENU_TAXE_ANNUELLE: MENU_TAXE_MOYENNE, MENU_MONNAIE);
+    AFFICHAGE_MENU(TYPE_DU_BATEAU, typeTaxe ? MENU_TAXE_ANNUELLE: MENU_TAXE_MOYENNE,
+					MENU_MONNAIE);
     AFFICHER_LIGNE_TABLEAU(TAILLE_TABLEAU);       
 }
 

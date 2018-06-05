@@ -24,15 +24,19 @@ double taxeBase (const Bateau* bateau) {
 double taxeSpecifique(const Bateau* bateau) {
 	
 	if (bateau->typeA == VOILIER) {
-		return bateau->voilier.surfaceVoilure < SURFACE_VOILE_MAX_AVANT_TAXE ? TAXE_SPECIFIQUE_PETITE_VOILE : TAXE_SPECIFIQUE_GRANDE_VOILE;
+		return bateau->voilier.surfaceVoilure < SURFACE_VOILE_MAX_AVANT_TAXE ? 
+						TAXE_SPECIFIQUE_PETITE_VOILE : TAXE_SPECIFIQUE_GRANDE_VOILE;
 	}
 
 	if (bateau->bateauMoteur.typeB == PECHE) {
-		return bateau->bateauMoteur.bateauPeche.tonnePoisson < TONNAGE_MAX_AVANT_TAXE ? TAXE_SPECIFIQUE_PETIT_TONNAGE : TAXE_SPECIFIQUE_GRAND_TONNAGE;
+		return bateau->bateauMoteur.bateauPeche.tonnePoisson < 
+				TONNAGE_MAX_AVANT_TAXE ? TAXE_SPECIFIQUE_PETIT_TONNAGE : 
+													TAXE_SPECIFIQUE_GRAND_TONNAGE;
 	}
 
 	if (bateau->bateauMoteur.typeB == PLAISANCE) {
-		return bateau->bateauMoteur.puissance < PUISSANCE_MAX_AVANT_TAXE ? TAXE_SPECIFIQUE_PETIT_MOTEUR : TAXE_SPECIFIQUE_GRAND_MOTEUR;
+		return bateau->bateauMoteur.puissance < PUISSANCE_MAX_AVANT_TAXE ? 
+						TAXE_SPECIFIQUE_PETIT_MOTEUR : TAXE_SPECIFIQUE_GRAND_MOTEUR;
 	}
 	return 0;
 }
@@ -52,7 +56,8 @@ void taxeTotalPort(Bateau port[], double taxeParType[],const uint8_t NB_BATEAU) 
 	}
 }
 
-void taxeMoyennePort(Bateau port[], double taxeMoyenneType[], const uint8_t NB_BATEAU) {
+void taxeMoyennePort(Bateau port[], double taxeMoyenneType[],
+						const uint8_t NB_BATEAU) {
     
     uint8_t *nombre_bateau_type = (uint8_t*)calloc(NB_BATEAU, sizeof(uint8_t));
 
@@ -69,8 +74,8 @@ void taxeMoyennePort(Bateau port[], double taxeMoyenneType[], const uint8_t NB_B
     
     taxeTotalPort(port, taxeMoyenneType, NB_BATEAU);
     
-    for(size_t i = 0; i < NB_BATEAU; ++i) 
+    for(size_t i = 0; i < NB_BATEAU; ++i) {
         taxeMoyenneType[i] /= nombre_bateau_type[i];   
-
+	}
   	free(nombre_bateau_type);
 }
